@@ -5,13 +5,15 @@ pipeline {
            maven 'apache-maven-3.8.5'
     }
 
-    stages{
+     stages{
         stage ('Git Checkout') {
             steps {
-                   gitcheckout(
-                   branch: "master",
-                   url: "https://github.com/harith2207/sireesha.git"
-                   )
+                checkout ([
+                    $class: 'GitSCM',
+                    branches: 'main',
+                    userRemoteConfigs: [[credentialsId: 'git_cred', url: 'https://github.com/harith2207/sireesha.git']]
+                ])
+
             }
         }
         stage('Hello') {
