@@ -14,7 +14,7 @@ pipeline {
             steps {
                    gitcheckout(
                    branch: "master",
-                   url: ""
+                   url: "https://github.com/harith2207/sireesha.git"
                    )
             }
         }
