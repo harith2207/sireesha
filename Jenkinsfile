@@ -5,17 +5,25 @@ pipeline {
            maven 'apache-maven-3.8.5'
     }
 
-     stages{
+    parameters{
+        choice(name: 'BRANCH', choices: ['master', 'jenkins'], description: 'Pick Branch to Build')
+    }
+
+    stages{
         stage ('Git Checkout') {
             steps {
                 checkout ([
                     $class: 'GitSCM',
-                    branches: 'main',
+                    branches: [[name: '*/jenkins']],
+                    doGenerateSubmoduleConfigurations: false,
+                    extensions: [[$class: 'CleanBeforeCheckout']],
+                    submoduleCfg: [],
                     userRemoteConfigs: [[credentialsId: 'git_cred', url: 'https://github.com/harith2207/sireesha.git']]
                 ])
 
             }
         }
+                   
         stage('Hello') {
 
 
