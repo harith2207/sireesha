@@ -4,10 +4,6 @@ pipeline {
     tools{
            maven 'apache-maven-3.8.5'
     }
-    
-    parameters{
-        choice(name: 'BRANCH', choices: ['master', 'jenkins'], description: 'Pick Branch to Build')
-    }
 
     stages{
         stage ('Git Checkout') {
