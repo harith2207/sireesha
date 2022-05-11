@@ -1,3 +1,5 @@
+@Library('sireesha@master') _
+
 pipeline {
     agent any
     
@@ -6,7 +8,7 @@ pipeline {
     }
 
     stages{
-        stage('git checkout'){
+        stage('Git Checkout'){
             steps{
                   gitcheckout(
                                branch: "master",
