@@ -10,7 +10,7 @@ pipeline {
     stages{
         stage('Git Checkout'){
             steps{
-                  gitcheckout(
+                  gitCheckout(
                                branch: "main",
                                url: "https://github.com/harith2207/sireesha.git"
                               )
