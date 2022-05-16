@@ -1,4 +1,4 @@
-@Library('sireesha@master') _
+@Library('sireesha@main') _
 
 pipeline {
     agent any
@@ -11,7 +11,7 @@ pipeline {
         stage('Git Checkout'){
             steps{
                   gitcheckout(
-                               branch: "master",
+                               branch: "main",
                                url: "https://github.com/harith2207/sireesha.git"
                               )
             }
